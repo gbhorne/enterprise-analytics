@@ -1,0 +1,293 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1000" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="sourceGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#334155"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="gcsGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1d4ed8"/>
+      <stop offset="100%" style="stop-color:#1e40af"/>
+    </linearGradient>
+    <linearGradient id="bronzeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#92400e"/>
+      <stop offset="100%" style="stop-color:#78350f"/>
+    </linearGradient>
+    <linearGradient id="silverGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#475569"/>
+      <stop offset="100%" style="stop-color:#334155"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#b45309"/>
+      <stop offset="100%" style="stop-color:#92400e"/>
+    </linearGradient>
+    <linearGradient id="factGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#d97706"/>
+      <stop offset="100%" style="stop-color:#b45309"/>
+    </linearGradient>
+    <linearGradient id="dimGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ca8a04"/>
+      <stop offset="100%" style="stop-color:#a16207"/>
+    </linearGradient>
+    <linearGradient id="outputGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#059669"/>
+      <stop offset="100%" style="stop-color:#047857"/>
+    </linearGradient>
+    <linearGradient id="govGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="100%" style="stop-color:#6d28d9"/>
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.3"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <marker id="arrowGold" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#d97706"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="1000" fill="url(#bgGrad)" rx="8"/>
+
+  <!-- Title -->
+  <text x="600" y="38" text-anchor="middle" fill="#f8fafc" font-size="22" font-weight="700" letter-spacing="1">ENTERPRISE ANALYTICS PLATFORM</text>
+  <text x="600" y="58" text-anchor="middle" fill="#94a3b8" font-size="13">Medallion Architecture on Google Cloud Platform</text>
+
+  <!-- ============ DATA SOURCES ============ -->
+  <rect x="40" y="75" width="1120" height="62" rx="8" fill="url(#sourceGrad)" stroke="#475569" stroke-width="1" filter="url(#shadow)"/>
+  <text x="60" y="96" fill="#94a3b8" font-size="11" font-weight="600" letter-spacing="1">DATA SOURCES</text>
+
+  <rect x="60" y="103" width="170" height="26" rx="4" fill="#1e293b" stroke="#475569" stroke-width="0.5"/>
+  <text x="145" y="120" text-anchor="middle" fill="#e2e8f0" font-size="11">🏪 POS Systems</text>
+
+  <rect x="245" y="103" width="170" height="26" rx="4" fill="#1e293b" stroke="#475569" stroke-width="0.5"/>
+  <text x="330" y="120" text-anchor="middle" fill="#e2e8f0" font-size="11">👥 CRM (5K customers)</text>
+
+  <rect x="430" y="103" width="170" height="26" rx="4" fill="#1e293b" stroke="#475569" stroke-width="0.5"/>
+  <text x="515" y="120" text-anchor="middle" fill="#e2e8f0" font-size="11">📦 Products (500 SKUs)</text>
+
+  <rect x="615" y="103" width="170" height="26" rx="4" fill="#1e293b" stroke="#475569" stroke-width="0.5"/>
+  <text x="700" y="120" text-anchor="middle" fill="#e2e8f0" font-size="11">📊 Inventory System</text>
+
+  <rect x="800" y="103" width="170" height="26" rx="4" fill="#1e293b" stroke="#475569" stroke-width="0.5"/>
+  <text x="885" y="120" text-anchor="middle" fill="#e2e8f0" font-size="11">🏬 Stores (50 locations)</text>
+
+  <!-- Arrow: Sources → GCS -->
+  <line x1="600" y1="137" x2="600" y2="155" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- ============ GCS INGESTION ============ -->
+  <rect x="200" y="158" width="800" height="52" rx="8" fill="url(#gcsGrad)" stroke="#3b82f6" stroke-width="1" filter="url(#shadow)"/>
+  <text x="230" y="180" fill="#bfdbfe" font-size="11" font-weight="600" letter-spacing="1">INGESTION</text>
+  <text x="230" y="200" fill="#e0f2fe" font-size="13" font-weight="700">☁️ Cloud Storage (GCS)</text>
+  <text x="560" y="190" fill="#93c5fd" font-size="11">gs://bucket/bronze/{transactions, customers, products, stores, inventory}/</text>
+
+  <!-- Arrow: GCS → Bronze -->
+  <line x1="600" y1="210" x2="600" y2="228" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="620" y="224" fill="#64748b" font-size="9" font-style="italic">bq load (CSV)</text>
+
+  <!-- ============ BRONZE LAYER ============ -->
+  <rect x="40" y="232" width="1120" height="95" rx="8" fill="url(#bronzeGrad)" stroke="#b45309" stroke-width="1" filter="url(#shadow)"/>
+  <text x="60" y="254" fill="#fde68a" font-size="11" font-weight="600" letter-spacing="1">🥉 BRONZE LAYER — BigQuery: retail_bronze</text>
+  <text x="880" y="254" fill="#fcd34d" font-size="10">Raw, immutable, exactly as received</text>
+
+  <rect x="60" y="263" width="195" height="52" rx="5" fill="rgba(0,0,0,0.25)" stroke="#d97706" stroke-width="0.5"/>
+  <text x="157" y="280" text-anchor="middle" fill="#fef3c7" font-size="11" font-weight="600">raw_transactions</text>
+  <text x="157" y="294" text-anchor="middle" fill="#fde68a" font-size="9">204,927 rows</text>
+  <text x="157" y="306" text-anchor="middle" fill="#d97706" font-size="8">Partitioned · Clustered</text>
+
+  <rect x="270" y="263" width="195" height="52" rx="5" fill="rgba(0,0,0,0.25)" stroke="#d97706" stroke-width="0.5"/>
+  <text x="367" y="280" text-anchor="middle" fill="#fef3c7" font-size="11" font-weight="600">raw_customers</text>
+  <text x="367" y="294" text-anchor="middle" fill="#fde68a" font-size="9">5,000 rows</text>
+  <text x="367" y="306" text-anchor="middle" fill="#d97706" font-size="8">Contains PII 🔒</text>
+
+  <rect x="480" y="263" width="155" height="52" rx="5" fill="rgba(0,0,0,0.25)" stroke="#d97706" stroke-width="0.5"/>
+  <text x="557" y="280" text-anchor="middle" fill="#fef3c7" font-size="11" font-weight="600">raw_products</text>
+  <text x="557" y="294" text-anchor="middle" fill="#fde68a" font-size="9">500 rows</text>
+  <text x="557" y="306" text-anchor="middle" fill="#d97706" font-size="8">Clustered: cat, brand</text>
+
+  <rect x="650" y="263" width="130" height="52" rx="5" fill="rgba(0,0,0,0.25)" stroke="#d97706" stroke-width="0.5"/>
+  <text x="715" y="280" text-anchor="middle" fill="#fef3c7" font-size="11" font-weight="600">raw_stores</text>
+  <text x="715" y="294" text-anchor="middle" fill="#fde68a" font-size="9">50 rows</text>
+  <text x="715" y="306" text-anchor="middle" fill="#d97706" font-size="8">3 regions</text>
+
+  <rect x="795" y="263" width="195" height="52" rx="5" fill="rgba(0,0,0,0.25)" stroke="#d97706" stroke-width="0.5"/>
+  <text x="892" y="280" text-anchor="middle" fill="#fef3c7" font-size="11" font-weight="600">raw_inventory</text>
+  <text x="892" y="294" text-anchor="middle" fill="#fde68a" font-size="9">180,000 rows</text>
+  <text x="892" y="306" text-anchor="middle" fill="#d97706" font-size="8">Partitioned by date</text>
+
+  <!-- Arrow: Bronze → Silver -->
+  <line x1="600" y1="327" x2="600" y2="345" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="620" y="341" fill="#64748b" font-size="9" font-style="italic">CREATE VIEW (dedup + type-cast + standardize)</text>
+
+  <!-- ============ SILVER LAYER ============ -->
+  <rect x="40" y="349" width="1120" height="95" rx="8" fill="url(#silverGrad)" stroke="#94a3b8" stroke-width="1" filter="url(#shadow)"/>
+  <text x="60" y="371" fill="#e2e8f0" font-size="11" font-weight="600" letter-spacing="1">🥈 SILVER LAYER — BigQuery: retail_silver</text>
+  <text x="880" y="371" fill="#cbd5e1" font-size="10">Cleansed · Deduplicated · 378 records filtered</text>
+
+  <rect x="60" y="380" width="195" height="52" rx="5" fill="rgba(0,0,0,0.2)" stroke="#94a3b8" stroke-width="0.5"/>
+  <text x="157" y="397" text-anchor="middle" fill="#f1f5f9" font-size="11" font-weight="600">stg_transactions</text>
+  <text x="157" y="411" text-anchor="middle" fill="#cbd5e1" font-size="9">204,549 rows (VIEW)</text>
+  <text x="157" y="423" text-anchor="middle" fill="#94a3b8" font-size="8">+ transaction_tier</text>
+
+  <rect x="270" y="380" width="195" height="52" rx="5" fill="rgba(0,0,0,0.2)" stroke="#94a3b8" stroke-width="0.5"/>
+  <text x="367" y="397" text-anchor="middle" fill="#f1f5f9" font-size="11" font-weight="600">stg_customers</text>
+  <text x="367" y="411" text-anchor="middle" fill="#cbd5e1" font-size="9">5,000 rows (VIEW)</text>
+  <text x="367" y="423" text-anchor="middle" fill="#94a3b8" font-size="8">+ activity_status</text>
+
+  <rect x="480" y="380" width="155" height="52" rx="5" fill="rgba(0,0,0,0.2)" stroke="#94a3b8" stroke-width="0.5"/>
+  <text x="557" y="397" text-anchor="middle" fill="#f1f5f9" font-size="11" font-weight="600">stg_products</text>
+  <text x="557" y="411" text-anchor="middle" fill="#cbd5e1" font-size="9">500 rows (VIEW)</text>
+  <text x="557" y="423" text-anchor="middle" fill="#94a3b8" font-size="8">+ margin_pct, price_tier</text>
+
+  <rect x="650" y="380" width="130" height="52" rx="5" fill="rgba(0,0,0,0.2)" stroke="#94a3b8" stroke-width="0.5"/>
+  <text x="715" y="397" text-anchor="middle" fill="#f1f5f9" font-size="11" font-weight="600">stg_stores</text>
+  <text x="715" y="411" text-anchor="middle" fill="#cbd5e1" font-size="9">50 rows (VIEW)</text>
+  <text x="715" y="423" text-anchor="middle" fill="#94a3b8" font-size="8">+ years_open</text>
+
+  <rect x="795" y="380" width="195" height="52" rx="5" fill="rgba(0,0,0,0.2)" stroke="#94a3b8" stroke-width="0.5"/>
+  <text x="892" y="397" text-anchor="middle" fill="#f1f5f9" font-size="11" font-weight="600">stg_inventory</text>
+  <text x="892" y="411" text-anchor="middle" fill="#cbd5e1" font-size="9">180,000 rows (VIEW)</text>
+  <text x="892" y="423" text-anchor="middle" fill="#94a3b8" font-size="8">+ is_stockout flags</text>
+
+  <!-- Arrow: Silver → Gold -->
+  <line x1="600" y1="444" x2="600" y2="462" stroke="#d97706" stroke-width="1.5" marker-end="url(#arrowGold)"/>
+  <text x="620" y="458" fill="#d97706" font-size="9" font-style="italic">CREATE TABLE (join + enrich + aggregate)</text>
+
+  <!-- ============ GOLD LAYER ============ -->
+  <rect x="40" y="466" width="1120" height="260" rx="8" fill="url(#goldGrad)" stroke="#f59e0b" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="60" y="488" fill="#fef3c7" font-size="11" font-weight="600" letter-spacing="1">🥇 GOLD LAYER — BigQuery: retail_gold — Star Schema</text>
+
+  <!-- Fact Tables -->
+  <text x="75" y="510" fill="#fde68a" font-size="10" font-weight="600">FACT TABLES</text>
+
+  <rect x="60" y="518" width="320" height="82" rx="6" fill="url(#factGrad)" stroke="#fbbf24" stroke-width="1" filter="url(#shadow)"/>
+  <text x="220" y="538" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">fct_sales</text>
+  <text x="220" y="554" text-anchor="middle" fill="#fef3c7" font-size="10">204,549 rows · Partitioned · Clustered</text>
+  <text x="220" y="570" text-anchor="middle" fill="#fde68a" font-size="9">revenue · profit · margin · quantity · discount</text>
+  <text x="220" y="586" text-anchor="middle" fill="#fcd34d" font-size="8">Pre-joined with product + store attributes</text>
+
+  <rect x="60" y="608" width="155" height="60" rx="6" fill="url(#factGrad)" stroke="#fbbf24" stroke-width="1" filter="url(#shadow)"/>
+  <text x="137" y="628" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">fct_daily_sales</text>
+  <text x="137" y="643" text-anchor="middle" fill="#fef3c7" font-size="9">40,361 rows</text>
+  <text x="137" y="658" text-anchor="middle" fill="#fde68a" font-size="8">Pre-aggregated for dashboards</text>
+
+  <rect x="225" y="608" width="155" height="60" rx="6" fill="url(#factGrad)" stroke="#fbbf24" stroke-width="1" filter="url(#shadow)"/>
+  <text x="302" y="628" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">fct_inventory</text>
+  <text x="302" y="643" text-anchor="middle" fill="#fef3c7" font-size="9">180,000 rows</text>
+  <text x="302" y="658" text-anchor="middle" fill="#fde68a" font-size="8">healthy · low · overstock · out</text>
+
+  <!-- Dimension Tables -->
+  <text x="440" y="510" fill="#fde68a" font-size="10" font-weight="600">DIMENSION TABLES</text>
+
+  <rect x="420" y="518" width="250" height="100" rx="6" fill="url(#dimGrad)" stroke="#eab308" stroke-width="1" filter="url(#shadow)"/>
+  <text x="545" y="538" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">dim_customer</text>
+  <text x="545" y="554" text-anchor="middle" fill="#fefce8" font-size="10">5,000 rows</text>
+  <text x="545" y="572" text-anchor="middle" fill="#fef9c3" font-size="9">RFM Segments: vip_active · vip_at_risk</text>
+  <text x="545" y="586" text-anchor="middle" fill="#fef9c3" font-size="9">loyal · regular · occasional · prospect</text>
+  <text x="545" y="602" text-anchor="middle" fill="#eab308" font-size="8">lifetime_revenue · lifetime_orders · CLV</text>
+
+  <rect x="420" y="626" width="250" height="60" rx="6" fill="url(#dimGrad)" stroke="#eab308" stroke-width="1" filter="url(#shadow)"/>
+  <text x="545" y="646" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">dim_product</text>
+  <text x="545" y="661" text-anchor="middle" fill="#fefce8" font-size="9">500 rows · L1→L2→L3 hierarchy</text>
+  <text x="545" y="676" text-anchor="middle" fill="#eab308" font-size="8">brand · margin_pct · price_tier</text>
+
+  <rect x="700" y="518" width="200" height="60" rx="6" fill="url(#dimGrad)" stroke="#eab308" stroke-width="1" filter="url(#shadow)"/>
+  <text x="800" y="538" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">dim_store</text>
+  <text x="800" y="553" text-anchor="middle" fill="#fefce8" font-size="9">50 rows · 3 regions · 15 countries</text>
+  <text x="800" y="568" text-anchor="middle" fill="#eab308" font-size="8">region → country → city</text>
+
+  <rect x="700" y="586" width="200" height="60" rx="6" fill="url(#dimGrad)" stroke="#eab308" stroke-width="1" filter="url(#shadow)"/>
+  <text x="800" y="606" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">dim_date</text>
+  <text x="800" y="621" text-anchor="middle" fill="#fefce8" font-size="9">2,922 rows · 2020–2027</text>
+  <text x="800" y="636" text-anchor="middle" fill="#eab308" font-size="8">year · quarter · month · is_weekend</text>
+
+  <!-- Star Schema Lines -->
+  <text x="945" y="520" fill="#fcd34d" font-size="26">⭐</text>
+  <text x="930" y="558" fill="#fde68a" font-size="9" font-weight="600">STAR</text>
+  <text x="926" y="572" fill="#fde68a" font-size="9" font-weight="600">SCHEMA</text>
+  <text x="923" y="600" fill="#fcd34d" font-size="8">Kimball</text>
+  <text x="915" y="614" fill="#fcd34d" font-size="8">Methodology</text>
+
+  <!-- ============ CONSUMPTION LAYER ============ -->
+  <!-- Arrow: Gold → Outputs -->
+  <line x1="350" y1="726" x2="350" y2="748" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="600" y1="726" x2="600" y2="748" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="850" y1="726" x2="850" y2="748" stroke="#64748b" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Looker Studio -->
+  <rect x="170" y="752" width="360" height="70" rx="8" fill="url(#outputGrad)" stroke="#34d399" stroke-width="1" filter="url(#shadow)"/>
+  <text x="350" y="775" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">📈 Looker Studio Dashboards</text>
+  <text x="350" y="793" text-anchor="middle" fill="#a7f3d0" font-size="10">Executive Summary · Product Performance</text>
+  <text x="350" y="808" text-anchor="middle" fill="#6ee7b7" font-size="10">Customer Analytics · Inventory Health</text>
+
+  <!-- Data Quality -->
+  <rect x="545" y="752" width="200" height="70" rx="8" fill="url(#outputGrad)" stroke="#34d399" stroke-width="1" filter="url(#shadow)"/>
+  <text x="645" y="775" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">✅ Data Quality</text>
+  <text x="645" y="793" text-anchor="middle" fill="#a7f3d0" font-size="10">5/5 tests passing</text>
+  <text x="645" y="808" text-anchor="middle" fill="#6ee7b7" font-size="10">Logged to BigQuery</text>
+
+  <!-- Pub/Sub -->
+  <rect x="760" y="752" width="200" height="70" rx="8" fill="#0b2545" stroke="#13678a" stroke-width="1" filter="url(#shadow)"/>
+  <text x="860" y="775" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">📨 Pub/Sub</text>
+  <text x="860" y="793" text-anchor="middle" fill="#7dd3fc" font-size="10">4 topics · 3 subscriptions</text>
+  <text x="860" y="808" text-anchor="middle" fill="#38bdf8" font-size="10">Streaming infrastructure</text>
+
+  <!-- ============ GOVERNANCE ============ -->
+  <rect x="40" y="840" width="1120" height="55" rx="8" fill="url(#govGrad)" stroke="#a78bfa" stroke-width="1" filter="url(#shadow)"/>
+  <text x="60" y="862" fill="#ede9fe" font-size="11" font-weight="600" letter-spacing="1">🔒 GOVERNANCE &amp; MONITORING</text>
+
+  <rect x="260" y="853" width="155" height="30" rx="4" fill="rgba(0,0,0,0.2)" stroke="#a78bfa" stroke-width="0.5"/>
+  <text x="337" y="872" text-anchor="middle" fill="#e9d5ff" font-size="10">Data Catalog</text>
+
+  <rect x="430" y="853" width="155" height="30" rx="4" fill="rgba(0,0,0,0.2)" stroke="#a78bfa" stroke-width="0.5"/>
+  <text x="507" y="872" text-anchor="middle" fill="#e9d5ff" font-size="10">Cloud DLP (PII)</text>
+
+  <rect x="600" y="853" width="155" height="30" rx="4" fill="rgba(0,0,0,0.2)" stroke="#a78bfa" stroke-width="0.5"/>
+  <text x="677" y="872" text-anchor="middle" fill="#e9d5ff" font-size="10">Row-Level Security</text>
+
+  <rect x="770" y="853" width="175" height="30" rx="4" fill="rgba(0,0,0,0.2)" stroke="#a78bfa" stroke-width="0.5"/>
+  <text x="857" y="872" text-anchor="middle" fill="#e9d5ff" font-size="10">Cloud Monitoring</text>
+
+  <!-- ============ METRICS BAR ============ -->
+  <rect x="40" y="910" width="1120" height="48" rx="8" fill="rgba(255,255,255,0.03)" stroke="#334155" stroke-width="1"/>
+
+  <text x="130" y="930" text-anchor="middle" fill="#94a3b8" font-size="9" font-weight="600" letter-spacing="0.5">TOTAL REVENUE</text>
+  <text x="130" y="948" text-anchor="middle" fill="#fbbf24" font-size="14" font-weight="700">$214.4M</text>
+
+  <line x1="240" y1="918" x2="240" y2="952" stroke="#334155" stroke-width="1"/>
+
+  <text x="340" y="930" text-anchor="middle" fill="#94a3b8" font-size="9" font-weight="600" letter-spacing="0.5">TRANSACTIONS</text>
+  <text x="340" y="948" text-anchor="middle" fill="#fbbf24" font-size="14" font-weight="700">204,549</text>
+
+  <line x1="440" y1="918" x2="440" y2="952" stroke="#334155" stroke-width="1"/>
+
+  <text x="540" y="930" text-anchor="middle" fill="#94a3b8" font-size="9" font-weight="600" letter-spacing="0.5">MARGIN</text>
+  <text x="540" y="948" text-anchor="middle" fill="#fbbf24" font-size="14" font-weight="700">49.9%</text>
+
+  <line x1="620" y1="918" x2="620" y2="952" stroke="#334155" stroke-width="1"/>
+
+  <text x="710" y="930" text-anchor="middle" fill="#94a3b8" font-size="9" font-weight="600" letter-spacing="0.5">CUSTOMERS</text>
+  <text x="710" y="948" text-anchor="middle" fill="#fbbf24" font-size="14" font-weight="700">5,000</text>
+
+  <line x1="800" y1="918" x2="800" y2="952" stroke="#334155" stroke-width="1"/>
+
+  <text x="890" y="930" text-anchor="middle" fill="#94a3b8" font-size="9" font-weight="600" letter-spacing="0.5">STORES</text>
+  <text x="890" y="948" text-anchor="middle" fill="#fbbf24" font-size="14" font-weight="700">50 (3 regions)</text>
+
+  <line x1="990" y1="918" x2="990" y2="952" stroke="#334155" stroke-width="1"/>
+
+  <text x="1080" y="930" text-anchor="middle" fill="#94a3b8" font-size="9" font-weight="600" letter-spacing="0.5">VERIFICATION</text>
+  <text x="1080" y="948" text-anchor="middle" fill="#34d399" font-size="14" font-weight="700">50/50 ✅</text>
+
+  <!-- ============ GCP SERVICES FOOTER ============ -->
+  <text x="600" y="985" text-anchor="middle" fill="#475569" font-size="10">GCP Services: BigQuery · Cloud Storage · Pub/Sub · Data Catalog · Cloud DLP · Cloud Monitoring</text>
+</svg>

@@ -21,55 +21,7 @@ The platform answers questions like:
 
 ## Architecture
 
-```
-┌──────────────────────────────────────────────────────────────────────┐
-│                         DATA SOURCES                                  │
-│   POS Systems  │  CRM  │  Product Catalog  │  Inventory  │  Stores   │
-└───────┬────────┴───┬───┴────────┬──────────┴──────┬──────┴─────┬─────┘
-        │            │            │                 │            │
-        ▼            ▼            ▼                 ▼            ▼
-┌──────────────────────────────────────────────────────────────────────┐
-│  INGESTION          Cloud Storage (GCS)                              │
-│                     Raw CSVs organized by source                     │
-│                     gs://bucket/bronze/{source}/                     │
-└───────────────────────────────┬──────────────────────────────────────┘
-                                │  bq load (CSV → BigQuery)
-                                ▼
-┌──────────────────────────────────────────────────────────────────────┐
-│  BRONZE LAYER       BigQuery: retail_bronze                          │
-│                     5 tables │ Partitioned by date │ Clustered       │
-│                     Raw, immutable, exactly as received               │
-│                     204,927 transactions │ 5,000 customers            │
-└───────────────────────────────┬──────────────────────────────────────┘
-                                │  CREATE VIEW (dedup + type-cast)
-                                ▼
-┌──────────────────────────────────────────────────────────────────────┐
-│  SILVER LAYER       BigQuery: retail_silver                          │
-│                     5 views │ Deduplicated │ Type-standardized        │
-│                     Derived fields: activity_status, margin_pct      │
-│                     378 duplicate/invalid records filtered            │
-└───────────────────────────────┬──────────────────────────────────────┘
-                                │  CREATE TABLE (joins + aggregations)
-                                ▼
-┌──────────────────────────────────────────────────────────────────────┐
-│  GOLD LAYER         BigQuery: retail_gold                            │
-│                     Star Schema:                                     │
-│                                                                      │
-│  Facts:                         Dimensions:                          │
-│  ├── fct_sales (204,549)        ├── dim_customer (5,000)             │
-│  ├── fct_daily_sales (40,361)   │   └── RFM segmentation + CLV      │
-│  └── fct_inventory (180,000)    ├── dim_product (500)                │
-│                                 │   └── 3-level category hierarchy   │
-│                                 ├── dim_store (50)                   │
-│                                 └── dim_date (2,922)                 │
-└───────────────────────────────┬──────────────────────────────────────┘
-                                │
-                    ┌───────────┼───────────┐
-                    ▼           ▼           ▼
-              Looker Studio   Data       Pub/Sub
-              Dashboards    Quality    (Streaming
-                            Tests     Infrastructure)
-```
+![Enterprise Analytics Platform  Medallion Architecture](architecture_diagram.svg)
 
 ## Key Technical Decisions
 
@@ -267,3 +219,4 @@ Built as part of an advanced GCP ML/AI portfolio targeting Google Cloud Solution
 ## License
 
 MIT
+
