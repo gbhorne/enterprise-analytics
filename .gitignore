@@ -1,0 +1,27 @@
+# Data files (generated, not committed)
+data/
+*.csv
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+
+# Terraform (if used)
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+
+# dbt
+target/
+dbt_packages/
+logs/
+
+# Verification output
+verification_report.txt
