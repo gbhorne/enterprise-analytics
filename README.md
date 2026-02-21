@@ -212,11 +212,18 @@ bash verify.sh
 - **Looker** (enterprise) with LookML semantic layer replacing Looker Studio
 - **CI/CD** pipeline: PR → dbt test → deploy to BigQuery
 
+## Disclaimer
+
+This project was built as a portfolio lab exercise for educational and demonstration purposes. It is not intended for production use without further hardening, security review, and compliance validation. Sample data is synthetically generated and does not represent any real company or individuals.
+
 ## Author
+
+**Gregory B. Horne**
 
 Built as part of an advanced GCP ML/AI portfolio targeting Google Cloud Solutions Architect roles.
 
 ## License
 
 MIT
+
 
