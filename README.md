@@ -136,7 +136,7 @@ enterprise-analytics/
 
 ### Prerequisites
 
-- GCP project with billing enabled (sandbox or personal)
+- GCP project with billing enabled (free tier or personal)
 - `gcloud` CLI authenticated
 - Python 3.9+
 
@@ -163,7 +163,7 @@ bash scripts/11_run_quality_tests.sh
 
 ### Cost
 
-- GCP Sandbox: $0
+- GCP free tier: $0
 - Personal GCP (free tier): ~$10-15/month
 - Production estimate: ~$19,000/month at 25M transactions (see [docs/COST_ANALYSIS.md](docs/COST_ANALYSIS.md))
 
